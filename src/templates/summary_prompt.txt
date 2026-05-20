@@ -1,0 +1,25 @@
+You are summarizing one day of Slack messages from the #{channel_name}
+channel on {date_pt} (Pacific Time).
+
+Fill the following sections. If a section has no relevant content, write
+"None." Do not invent or speculate beyond what's in the transcript.
+
+## Key Decisions
+What was decided or agreed upon? One bullet per decision.
+
+## Action Items
+Concrete tasks assigned or volunteered. Format: "{person} → {task}".
+
+## Open Questions
+Questions raised but not resolved.
+
+## Notable Discussions
+Substantive conversations worth knowing about, in 1-2 sentences each.
+
+## Participants
+Active participants (people who sent more than just an emoji reaction).
+
+---
+
+TRANSCRIPT:
+{transcript_block}

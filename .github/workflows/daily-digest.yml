@@ -1,0 +1,26 @@
+name: Daily Slack Digest
+
+on:
+  schedule:
+    - cron: '0 14 * * *'  # 14:00 UTC ~= 7am PT during DST, 6am PST otherwise
+  workflow_dispatch:
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: python -m src.main
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          MASTER_DOC_ID: ${{ secrets.MASTER_DOC_ID }}
+          SUMMARIES_TAB_ID: ${{ secrets.SUMMARIES_TAB_ID }}
+          TRANSCRIPTS_TAB_ID: ${{ secrets.TRANSCRIPTS_TAB_ID }}

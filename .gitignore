@@ -1,0 +1,6 @@
+.env
+/secrets/
+.venv/
+__pycache__/
+*.pyc
+pareto-slack-digest-c64c02404e29.json
